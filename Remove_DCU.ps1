@@ -1,8 +1,8 @@
-﻿Start-Transcript -Path "$env:windir\temp\DCU_Task_Reboot.log"
+﻿Start-Transcript -Path "c:\tmp\Dell_Command_Temp\DCU_Task_Reboot.log"
 $Name = "Dell Command*"
 $ProcName = "*Dell*"
 $Timestamp = Get-Date -Format "yyyy-MM-dd_THHmmss" -Verbose
-$LogFile = "$env:windir\temp\DCU-Uninst_$Timestamp.log"
+$LogFile = "c:\tmp\Dell_Command_Temp\DCU-Uninst_$Timestamp.log"
 $ProgramList = @( "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*", "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*" )
 $Programs = Get-ItemProperty $ProgramList -EA 0 -Verbose
 $App = ($Programs | Where-Object { $_.DisplayName -like $Name -and $_.UninstallString -like "*msiexec*" }).PSChildName
