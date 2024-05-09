@@ -7,9 +7,16 @@ param (
 #Start-ScheduledTask -TaskName "DCU_Removal"
 # Environmentvariables:
 # Path to .exe files. 
+if(Test-Path "C:\Program Files\Dell\CommandUpdate\dcu-cli.exe"){
 $DellCommandUpdateFolder = "C:\Program Files\Dell\CommandUpdate"
-$DellCommandConfigureFolder = "C:\Program Files (x86)\Dell\Command Configure\X86_64"
 $DellCommandUpdateExePath = "$DellCommandUpdateFolder\dcu-cli.exe"
+}
+Else{
+$DellCommandUpdateFolder = "C:\Program Files (x86)\Dell\CommandUpdate"
+$DellCommandUpdateExePath = "$DellCommandUpdateFolder\dcu-cli.exe"
+}
+
+$DellCommandConfigureFolder = "C:\Program Files (x86)\Dell\Command Configure\X86_64"
 $DellCommandConfigureExePath = "$DellCommandConfigureFolder\cctk.exe"
 
 <#
